@@ -1,15 +1,7 @@
 import { useEffect, useState } from "react"
 import { getAllPrimates } from "../../services/primateService.js"
 
-export const Proposal = ( {proposal} ) => {
-//     const [primates, setPrimates] = useState([])
-    
-// useEffect(() => {
-//     getAllPrimates().then((primatesArray) => {
-//         setPrimates(primatesArray)
-//     })
-// },[])
-
+export const Proposal = ( {proposal, currentUser } ) => {
 
 
     return ( 
@@ -21,6 +13,9 @@ export const Proposal = ( {proposal} ) => {
       <div>
         <div className="proposal-info"> Approved</div>
         <div>{proposal.proposal.approved ? "yes"  : "no" }</div>
+      </div>
+      <div className="btn-container">
+        
       </div>
     </footer>
   </section>)

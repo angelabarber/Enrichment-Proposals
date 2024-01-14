@@ -181,6 +181,13 @@
         "description": "Jolly Eggs",
         "approved": false 
       }
+      ,
+      {
+        "id": 5,
+        "keeperId": 4,
+        "description": "Hammock",
+        "approved": false 
+      }
     ],
     "primatesProposals": [
       {
