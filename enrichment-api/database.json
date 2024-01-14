@@ -1,0 +1,217 @@
+{
+    "enclosures": [
+      {
+        "id": 1,
+        "exhibit": "A"
+      },
+      {
+        "id": 2,
+        "exhibit": "B"
+      },
+      {
+        "id": 3,
+        "exhibit": "C"
+      },
+      {
+        "id": 4,
+        "exhibit": "D"
+      },
+      {
+        "id": 5,
+        "exhibit": "E"
+      },
+      {
+        "id": 6,
+        "exhibit": "F"
+      },
+      {
+        "id": 7,
+        "exhibit": "G"
+      },
+      {
+        "id": 8,
+        "exhibit": "H"
+      },
+      {
+        "id": 9,
+        "exhibit": "RMF"
+      }
+    ],
+    "users": [
+     {
+        "id": 1,
+        "fullName": "Dan M",
+        "email": "dan@ph.zoo",
+        "isAdmin": false
+      },
+      {
+        "id": 2,
+        "fullName": "Bonnie J",
+        "email": "bonnie@ph.zoo",
+        "isAdmin": false
+      },
+      {
+        "id": 3,
+        "fullName": "Amy M",
+        "email": "amy@ph.zoo",
+        "isAdmin": false
+      },
+      {
+        "id": 4,
+        "fullName": "Taylor C",
+        "email": "taylor@ph.zoo",
+        "isAdmin": false
+      },
+      {
+        "id": 5,
+        "fullName": "Gina S",
+        "email": "gina@ph.zoo",
+        "isAdmin": false
+      },
+      {
+        "id": 6,
+        "fullName": "Jillian W",
+        "email": "jillian@ph.zoo",
+        "isAdmin": false
+      },
+      {
+        "id": 7,
+        "fullName": "Dani S",
+        "email": "dani.manager@ph.zoo",
+        "isAdmin": true
+      },
+      {
+        "id": 8,
+        "fullName": "Jill M",
+        "email": "jill.curator@ph.zoo",
+        "isAdmin": true
+      }
+    ],
+    "primates": [
+      {
+        "id": 1,
+        "enclosureId": 1,
+        "name": "Pied Tamarin",
+        "behaviors": "insect foraging, gum extraction"
+      },
+      {
+        "id": 2,
+        "enclosureId": 2,
+        "name": "Francois Langur",
+        "behaviors": "aboreal foraging, browse"
+      },
+      {
+        "id": 3,
+        "enclosureId": 3,
+        "name": "DeBrazza Monkey",
+        "behaviors": "substrate foraging, allgrooming"
+      },
+      {
+        "id": 4,
+        "enclosureId": 4,
+        "name": "Black Howler Monkey",
+        "behaviors": "browse, vocalizations"
+      },
+      {
+        "id": 5,
+        "enclosureId": 4,
+        "name": "Goeldi's Monkey",
+        "behaviors": "insect foraging, gum extraction"
+      },
+      {
+        "id": 6,
+        "enclosureId": 5,
+        "name": "Titi Monkey",
+        "behaviors": "vocalizations, foraging, allgrooming"
+      },
+      {
+        "id": 7,
+        "enclosureId": 6,
+        "name": "Allens Swamp Monkey",
+        "behaviors": "swimming, puzzles, havoc"
+      },
+      {
+        "id": 8,
+        "enclosureId": 6,
+        "name": "Black and White Colobus Monkey",
+        "behaviors": "aboreal movement, foraging, browse"
+      },
+      {
+        "id": 9,
+        "enclosureId": 7,
+        "name": "Crowned Lemur",
+        "behaviors": "scent marking, aboreal leaping, foraging"
+      },
+      {
+        "id": 10,
+        "enclosureId": 8,
+        "name": "White Cheeked Gibbon",
+        "behaviors": "aboreal locomotion, vocalizaion"
+      },
+      {
+        "id": 11,
+        "enclosureId": 9,
+        "name": "Japanese Macaque",
+        "behaviors": "group foraging, displays, hot tub"
+      }
+    ],
+    "proposals": [
+      {
+        "id": 1,
+        "keeperId": 3,
+        "description": "Hanging Boomer Balls",
+        "approved": true  
+      },
+      {
+        "id": 2,
+        "keeperId": 1,
+        "description": "Gum Arabic",
+        "approved": true  
+      },
+      {
+        "id": 3,
+        "keeperId": 5,
+        "description": "Chow Ball on Pulley",
+        "approved": false 
+      }
+      ,
+      {
+        "id": 4,
+        "keeperId": 6,
+        "description": "Jolly Eggs",
+        "approved": false 
+      }
+    ],
+    "primatesProposals": [
+      {
+        "id": 1,
+        "primateId": 1,
+        "proposalId": 2
+      },
+      {
+        "id": 2,
+        "primateId": 2,
+        "proposalId": 3
+      },
+      {
+        "id": 3,
+        "primateId": 7,
+        "proposalId": 3
+      },
+      {
+        "id": 4,
+        "primateId": 8,
+        "proposalId": 1
+      },
+      {
+        "id": 5,
+        "primateId": 9,
+        "proposalId": 1
+      },
+      {
+        "id": 6,
+        "primateId": 3,
+        "proposalId": 4
+      }
+    ]
+  }
