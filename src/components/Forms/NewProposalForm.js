@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react"
 import { getAllPrimates } from "../../services/primateService.js"
+import { Navigate } from "react-router-dom"
 
 
-export const NewProposalForm = ( {primate}) => {
+export const NewProposalForm = ( {primate, currentUser, proposal}) => {
     const [primates, setPrimates] = useState([])
     const [selectedPrimateIds, setSelectedPrimateIds] = useState([])
+    const [proposals, setProposals] = useState([])
 
 
     useEffect (() => {
@@ -12,6 +14,14 @@ export const NewProposalForm = ( {primate}) => {
             setPrimates(primatesArray)
         })
     }, [])
+
+    // useEffect(() => {
+    //     fetch(`http://localhost:8088/proposals`)
+    //     .then((res) => res.json())
+    //     .then(setProposals);
+        
+    // }, [])
+
 
 
     const checkListener = (event) => {
@@ -27,6 +37,44 @@ export const NewProposalForm = ( {primate}) => {
         
 
     };
+
+    const handleSubmit = (event) => {
+        event.PreventDefault()
+        const newProposal = {
+            userId: currentUser.id,
+            description: proposal.description ,
+            approved: false,
+            exhibit: proposal.exhibit
+        };
+
+        // fetch("http://localhost:8088/proposals", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+
+        //     },
+        //     body: JSON.stringify(newProposal),
+        // })
+        //  .then((res) => res.json())
+        //  .then((res) => {
+        //     const promises = selectedPrimateIds.map((primate) => {
+        //         return fetch("http://localhost:8088/primatesProposals",{
+        //             method: "POST",
+        //             headers: {
+        //                 "Content-Type": "application/json",
+        //             },
+        //             body: JSON.stringify({
+        //                 proposalId: res.id,
+        //                 primateId: primates,
+        //             }),
+        //            });
+        //           });
+        //           return Promise.all(promises);
+        //         })
+        //         .then(() => {
+        //             Navigate("/proposals");
+        //         });
+          };
 
     return (
         <form className="proposal">
@@ -51,8 +99,9 @@ export const NewProposalForm = ( {primate}) => {
                     <label>Description:</label>
                     <input
                         type="text"
-                        required
-                        className="form-control" />
+                        className="form-control"
+                        placeholder="Brief Description/Name of item(s)"
+                         />
                 </div>
             </fieldset>
             <fieldset>
@@ -64,7 +113,7 @@ export const NewProposalForm = ( {primate}) => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <button className="form-btn">Save Proposal</button>
+                    <button className="form-btn" onClick={handleSubmit}>Save Proposal</button>
                 </div>
             </fieldset>
 
