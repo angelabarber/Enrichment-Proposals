@@ -4,9 +4,9 @@ import {
   deleteProposal,
   getProposals,
 } from "../../services/proposalService.js";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-export const Proposal = ({ proposal, currentUser }) => {
+export const Proposal = ({ proposal, currentUser, getAndSetProposals }) => {
   // const [users, setUsers] = useState([]);
   // const [proposalUser, setProposalUser] = useState([]);
   // const [matchProposals, setMatchedProposals] = useState([]);
@@ -35,20 +35,36 @@ export const Proposal = ({ proposal, currentUser }) => {
   // const handleEdit = () => {
   //   const currentEmployee = users.find(
   //     user =>
-
+  const navigate = useNavigate();
   //   )
   // }
   // if (currentUser.id === proposalUser.proposal?.id)
+  // const handleDelete = () => {
+  //   deleteProposal(proposal.proposal.id).then(() => {
+  //     getAndSetProposals().then(() => {
+  //       navigate("/proposals");
+  //     });
+  //   });
+  // };
+
   const handleDelete = () => {
-    deleteProposal(proposal.id).then(() => {
-      proposal();
-    });
+    deleteProposal(proposal.proposal.id)
+      .then(() => {
+        return getAndSetProposals();
+      })
+      .then(() => {
+        navigate("/proposals");
+      })
+      .catch((error) => {
+        console.error("Error deleting or fetching proposals:", error);
+        // Handle the error, e.g., show an error message to the user
+      });
   };
   return (
     <section className="proposal" key={proposal.id}>
       <header className="proposal-info">#{proposal.id}</header>
       <div>{proposal.primate.name}</div>
-      <div>{proposal.description}</div>
+      <div>{proposal.proposal.description}</div>
       <footer>
         <div>
           <div className="proposal-info"> Approved</div>
@@ -56,7 +72,9 @@ export const Proposal = ({ proposal, currentUser }) => {
         </div>
         <div className="btn-container">
           {currentUser.id === proposal.proposal.userId ? (
-            <button className="btn btn-edit">Edit</button>
+            <Link to={`/proposals/${proposal.id}`}>
+              <button className="btn btn-edit">Edit</button>
+            </Link>
           ) : (
             ""
           )}

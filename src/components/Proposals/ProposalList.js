@@ -10,11 +10,15 @@ export const ProposalList = ({ currentUser }) => {
   const [filteredProposals, setFilteredProposals] = useState([]);
 
   useEffect(() => {
-    getAllProposals().then((proposalsArray) => {
-      setAllProposals(proposalsArray);
-    });
+    getAndSetProposals()
   }, []);
 
+
+const getAndSetProposals = () => {
+  getAllProposals().then((proposalsArray) => {
+    setAllProposals(proposalsArray);
+  });
+};
   useEffect(() => {
     if (showApprovedOnly) {
       const approvedProposals = allProposals.filter(
@@ -64,6 +68,7 @@ export const ProposalList = ({ currentUser }) => {
               proposal={proposalObj}
               currentUser={currentUser}
               key={proposalObj.id}
+              getAndSetProposals={getAndSetProposals}
             />
           );
         })}

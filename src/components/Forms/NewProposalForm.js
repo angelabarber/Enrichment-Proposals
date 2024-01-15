@@ -1,14 +1,45 @@
 import { useEffect, useState } from "react";
-import { getAllPrimates } from "../../services/primateService.js";
-import { Navigate, useNavigate } from "react-router-dom";
+import {
+  getAllPrimates,
+  getPrimateProposalsByProposalId,
+} from "../../services/primateService.js";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  createProposal,
+  editProposal,
+  getProposalById,
+} from "../../services/proposalService.js";
 
 export const NewProposalForm = ({ primate, currentUser }) => {
   const [primates, setPrimates] = useState([]);
   const [selectedPrimateIds, setSelectedPrimateIds] = useState([]);
-  //   const [proposals, setProposals] = useState([]);
   const [description, setDescription] = useState("");
   const [exhibit, setExhibit] = useState(false);
+  const { proposalId } = useParams();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isNaN(parseInt(proposalId))) {
+      getProposalById(parseInt(proposalId)).then((proposal) => {
+        setDescription(proposal.description);
+        setExhibit(proposal.exhibit);
+        getPrimateProposalsByProposalId(proposal.id).then(
+          (primateProposals) => {
+            const primateIds = [];
+            for (const primateProposal of primateProposals) {
+              primateIds.push(primateProposal.primateId);
+            }
+            setSelectedPrimateIds(primateIds);
+          }
+        );
+      });
+    } else {
+      setSelectedPrimateIds([]);
+      setDescription("");
+      setExhibit(false);
+    }
+  }, [proposalId]);
+
   useEffect(() => {
     getAllPrimates().then((primatesArray) => {
       setPrimates(primatesArray);
@@ -37,9 +68,7 @@ export const NewProposalForm = ({ primate, currentUser }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (description === "") {
-      return;
-    }
+
     const newProposal = {
       userId: currentUser.id,
       description,
@@ -47,32 +76,35 @@ export const NewProposalForm = ({ primate, currentUser }) => {
       exhibit,
     };
 
-    fetch("http://localhost:8088/proposals", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newProposal),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        const promises = selectedPrimateIds.map((primateId) => {
-          return fetch("http://localhost:8088/primatesProposals", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              proposalId: res.id,
-              primateId,
-            }),
+    if (event.target.innerText === "Save Proposal") {
+      if (description === "") {
+        return;
+      }
+      createProposal(newProposal)
+        .then((res) => {
+          const promises = selectedPrimateIds.map((primateId) => {
+            return fetch("http://localhost:8088/primatesProposals", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                proposalId: res.id,
+                primateId,
+              }),
+            });
           });
+          return Promise.all(promises);
+        })
+        .then(() => {
+          navigate("/proposals");
         });
-        return Promise.all(promises);
-      })
-      .then(() => {
+    }
+    if (event.target.innerText === "Edit Proposal") {
+      editProposal(newProposal, proposalId).then(() => {
         navigate("/proposals");
       });
+    }
   };
 
   return (
@@ -100,9 +132,11 @@ export const NewProposalForm = ({ primate, currentUser }) => {
             type="text"
             className="form-control"
             placeholder="Brief Description/Name of item(s)"
+            required
             onChange={(event) => {
               setDescription(event.target.value);
             }}
+            value={description}
           />
         </div>
       </fieldset>
@@ -114,14 +148,23 @@ export const NewProposalForm = ({ primate, currentUser }) => {
             onChange={(event) => {
               setExhibit(event.target.checked);
             }}
+            checked={exhibit}
           />
         </div>
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <button className="form-btn" onClick={handleSubmit}>
-            Save Proposal
-          </button>
+          {proposalId ? (
+            <button className="form-btn" type="submit" onClick={handleSubmit}>
+              {" "}
+              Save Edit{" "}
+            </button>
+          ) : (
+            <button className="form-btn" type="submit" onClick={handleSubmit}>
+              {" "}
+              Save Proposal{" "}
+            </button>
+          )}
         </div>
       </fieldset>
     </form>
