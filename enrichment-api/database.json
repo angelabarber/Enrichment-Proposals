@@ -193,24 +193,10 @@
     },
     {
       "userId": 4,
-      "description": "testing",
+      "description": "puzzle feeders",
       "approved": false,
-      "exhibit": false,
+      "exhibit": true,
       "id": 6
-    },
-    {
-      "userId": 4,
-      "description": "testing two",
-      "approved": false,
-      "exhibit": false,
-      "id": 7
-    },
-    {
-      "userId": 4,
-      "description": "again!",
-      "approved": false,
-      "exhibit": false,
-      "id": 8
     }
   ],
   "primatesProposals": [
@@ -260,24 +246,19 @@
       "id": 9
     },
     {
-      "proposalId": 7,
-      "primateId": 4,
-      "id": 10
+      "proposalId": 6,
+      "primateId": 2,
+      "id": 14
     },
     {
-      "proposalId": 7,
-      "primateId": 6,
-      "id": 11
+      "proposalId": 6,
+      "primateId": 3,
+      "id": 15
     },
     {
-      "proposalId": 8,
-      "primateId": 5,
-      "id": 12
-    },
-    {
-      "proposalId": 8,
-      "primateId": 6,
-      "id": 13
+      "proposalId": 6,
+      "primateId": 11,
+      "id": 16
     }
   ]
 }
