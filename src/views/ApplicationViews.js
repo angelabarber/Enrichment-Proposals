@@ -33,11 +33,14 @@ export const ApplicationViews = () => {
         <Route path="primates" element={<PrimateList />} />
         <Route path="proposals">
           <Route index element={<ProposalList currentUser={currentUser} />} />
-          {/* <Route path="newproposal" element={<NewProposalForm currentUser={currentUser}/>} /> */}
           <Route
+            path="newproposal"
+            element={<NewProposalForm currentUser={currentUser} />}
+          />
+          {/* <Route
             path="edit/:id?"
             element={<ProposalForm currentUser={currentUser} />}
-          />
+          /> */}
           {/* <Route
             path="proposals/:id"
             element={<ProposalForm currentUser={currentUser} />}
