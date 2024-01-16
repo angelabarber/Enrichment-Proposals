@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import {
+  addPrimateProposal,
+  deletePrimateProposal,
   getAllPrimates,
   getPrimateProposalsByProposalId,
 } from "../../services/primateService.js";
@@ -12,6 +14,9 @@ import {
 
 export const NewProposalForm = ({ primate, currentUser }) => {
   const [primates, setPrimates] = useState([]);
+  const [initialSelectedPrimateIds, setInitialSelectedPrimateIds] = useState(
+    []
+  );
   const [selectedPrimateIds, setSelectedPrimateIds] = useState([]);
   const [description, setDescription] = useState("");
   const [exhibit, setExhibit] = useState(false);
@@ -30,6 +35,7 @@ export const NewProposalForm = ({ primate, currentUser }) => {
               primateIds.push(primateProposal.primateId);
             }
             setSelectedPrimateIds(primateIds);
+            setInitialSelectedPrimateIds(primateIds);
           }
         );
       });
@@ -101,10 +107,52 @@ export const NewProposalForm = ({ primate, currentUser }) => {
         });
     }
     if (event.target.innerText === "Edit Proposal") {
-      editProposal(newProposal, proposalId).then(() => {
-        navigate("/proposals");
+      // for (let selectedId of selectedPrimateIds) {
+      // const newPrimateProposal = {
+      //   primateId: selectedId,
+      //   proposalId: +proposalId,
+      // };
+      // addPrimateProposal(newPrimateProposal);
+      const promises = selectedPrimateIds.map((primateId) => {
+        if (!initialSelectedPrimateIds.includes(primateId)) {
+          return fetch("http://localhost:8088/primatesProposals", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              proposalId: +proposalId,
+              primateId,
+            }),
+          });
+        }
+      });
+      return Promise.all(promises).then(() => {
+       if navigate("/proposals");
       });
     }
+    // }
+    // }
+    //const array1 = [1, 2, 3]; initial selected primate ids
+
+    //const array2 = [2, 5, 6]; selected primate ids
+
+    // for(array of array1) {
+    //   console.log(array2.includes(array))
+
+    // }
+
+    // be able to change/delete selected primates with the edit form
+    //keep track of initial ids and when they are modified
+    //delete corresponding primateProposals IF that primateId has been deleted
+    //           method: "DELETE",
+    //         });
+    //       });
+    //     });
+    //     editProposal(newProposal, proposalId).then((proposalId) => {
+    //       navigate("/proposals");
+    //     });
+    //   }
   };
 
   return (
