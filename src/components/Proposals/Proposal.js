@@ -6,16 +6,37 @@ import {
 } from "../../services/proposalService.js";
 import { Link, useNavigate } from "react-router-dom";
 
-export const Proposal = ({ proposal, currentUser, getAndSetProposals }) => {
+export const Proposal = ({
+  proposal,
+  currentUser,
+  getAndSetProposals,
+  primateProposals,
+}) => {
   // const [users, setUsers] = useState([]);
   // const [proposalUser, setProposalUser] = useState([]);
-  // const [matchProposals, setMatchedProposals] = useState([]);
+  const [matchedPrimateProposals, setMatchedPrimateProposals] = useState([]);
+  const [proposalWithPrimates, setProposalWithPrimates] = useState([]);
 
-  // useEffect(() => {
-  //   getAllUsers().then((usersArray) => {
-  //     setUsers(usersArray);
-  //   });
-  // }, []);
+  useEffect(() => {
+    // if (primateProposals && proposal) {
+    setMatchedPrimateProposals(
+      primateProposals.filter(
+        (primateProposal) => proposal.id === primateProposal.proposalId
+      )
+    );
+    // }
+  }, [primateProposals]);
+
+  useEffect(() => {
+    // if (matchedPrimateProposals) {
+    const proposalCopy = structuredClone(proposal);
+    const primateNames = matchedPrimateProposals.map(
+      (primateProposal) => primateProposal.primate.name
+    );
+    proposalCopy.primateNames = primateNames.join(", ");
+    setProposalWithPrimates(proposalCopy);
+    // }
+  }, [matchedPrimateProposals]);
 
   // useEffect(() => {
   //   getProposals().then((proposalsArray) => {
@@ -61,18 +82,18 @@ export const Proposal = ({ proposal, currentUser, getAndSetProposals }) => {
       });
   };
   return (
-    <section className="proposal" key={proposal.id}>
-      <header className="proposal-info">#{proposal.id}</header>
-      <div>{proposal.primate.name}</div>
-      <div>{proposal.proposal.description}</div>
+    <section className="proposal" key={proposalWithPrimates.id}>
+      <header className="proposal-info">#{proposalWithPrimates.id}</header>
+      <div>{proposalWithPrimates.primateNames}</div>
+      <div>{proposalWithPrimates.description}</div>
       <footer>
         <div>
           <div className="proposal-info"> Approved</div>
-          <div>{proposal.approved ? "yes" : "no"}</div>
+          <div>{proposalWithPrimates.approved ? "yes" : "no"}</div>
         </div>
         <div className="btn-container">
-          {currentUser.id === proposal.proposal.userId ? (
-            <Link to={`/proposals/${proposal.id}`}>
+          {currentUser.id === proposalWithPrimates.userId ? (
+            <Link to={`/proposals/${proposalWithPrimates.id}`}>
               <button className="btn btn-edit">Edit</button>
             </Link>
           ) : (
@@ -80,7 +101,7 @@ export const Proposal = ({ proposal, currentUser, getAndSetProposals }) => {
           )}
         </div>
         <div className="btn-container">
-          {currentUser.id === proposal.proposal.userId ? (
+          {currentUser.id === proposalWithPrimates.userId ? (
             <button className="btn btn-delete" onClick={handleDelete}>
               {" "}
               Delete

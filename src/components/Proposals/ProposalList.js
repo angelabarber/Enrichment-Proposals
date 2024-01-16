@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
-import { getAllProposals } from "../../services/proposalService.js";
+import {
+  getAllProposals,
+  getProposals,
+  primatesProposalsWithPrimates,
+} from "../../services/proposalService.js";
 import { Proposal } from "./Proposal.js";
 import "./Proposal.css";
 
@@ -8,17 +12,29 @@ export const ProposalList = ({ currentUser }) => {
   const [showApprovedOnly, setShowApprovedOnly] = useState(false);
   // const [showPendingApprovalOnly, setPendingApprovalOnly] = useState(true)
   const [filteredProposals, setFilteredProposals] = useState([]);
+  const [primateProposals, setPrimateProposals] = useState([]);
 
   useEffect(() => {
-    getAndSetProposals()
+    getAndSetProposals();
   }, []);
 
+  useEffect(() => {
+    if (allProposals) {
+      getAndSetProposalsWithPrimates();
+    }
+  }, []);
 
-const getAndSetProposals = () => {
-  getAllProposals().then((proposalsArray) => {
-    setAllProposals(proposalsArray);
-  });
-};
+  const getAndSetProposals = () => {
+    getProposals().then((proposalsArray) => {
+      setAllProposals(proposalsArray);
+    });
+  };
+  const getAndSetProposalsWithPrimates = () => {
+    primatesProposalsWithPrimates().then((primateProposalsArray) => {
+      setPrimateProposals(primateProposalsArray);
+    });
+  };
+
   useEffect(() => {
     if (showApprovedOnly) {
       const approvedProposals = allProposals.filter(
@@ -35,6 +51,10 @@ const getAndSetProposals = () => {
       setFilteredProposals(allProposals);
     }
   }, [showApprovedOnly, allProposals]);
+
+  if (!primateProposals) {
+    return <></>;
+  }
 
   return (
     <div className="proposals-container">
@@ -62,13 +82,13 @@ const getAndSetProposals = () => {
 
       <article className="proposals">
         {filteredProposals.map((proposalObj) => {
-          console.log(proposalObj);
           return (
             <Proposal
               proposal={proposalObj}
               currentUser={currentUser}
               key={proposalObj.id}
               getAndSetProposals={getAndSetProposals}
+              primateProposals={primateProposals}
             />
           );
         })}

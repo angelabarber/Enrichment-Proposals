@@ -19,3 +19,5 @@ export const getAllPrimateProposals = () => {
       `http://localhost:8088/primatesProposals?_expand=primate&_expand=proposal`
     ).then((res) => res.json());
   };
+
+  
