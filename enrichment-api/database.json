@@ -200,62 +200,6 @@
     },
     {
       "userId": 4,
-      "description": "",
-      "approved": false,
-      "exhibit": false,
-      "id": 7
-    },
-    {
-      "userId": 4,
-      "description": "",
-      "approved": false,
-      "exhibit": false,
-      "id": 8
-    },
-    {
-      "userId": 4,
-      "description": "",
-      "approved": false,
-      "exhibit": false,
-      "id": 9
-    },
-    {
-      "userId": 4,
-      "description": "",
-      "approved": false,
-      "exhibit": false,
-      "id": 10
-    },
-    {
-      "userId": 4,
-      "description": "",
-      "approved": false,
-      "exhibit": false,
-      "id": 11
-    },
-    {
-      "userId": 4,
-      "description": "test",
-      "approved": false,
-      "exhibit": false,
-      "id": 12
-    },
-    {
-      "userId": 4,
-      "description": "aa",
-      "approved": false,
-      "exhibit": false,
-      "id": 13
-    },
-    {
-      "userId": 4,
-      "description": "a",
-      "approved": false,
-      "exhibit": false,
-      "id": 14
-    },
-    {
-      "userId": 4,
       "description": "a",
       "approved": false,
       "exhibit": false,
@@ -267,13 +211,6 @@
       "approved": false,
       "exhibit": false,
       "id": 16
-    },
-    {
-      "userId": 4,
-      "description": "te",
-      "approved": false,
-      "exhibit": false,
-      "id": 17
     }
   ],
   "primatesProposals": [
@@ -336,16 +273,6 @@
       "proposalId": 16,
       "primateId": 5,
       "id": 12
-    },
-    {
-      "proposalId": 17,
-      "primateId": 7,
-      "id": 13
-    },
-    {
-      "proposalId": 17,
-      "primateId": 10,
-      "id": 14
     }
   ]
 }

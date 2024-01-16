@@ -69,7 +69,7 @@ export const Proposal = ({
   // };
 
   const handleDelete = () => {
-    deleteProposal(proposal.proposal.id)
+    deleteProposal(proposal.id)
       .then(() => {
         return getAndSetProposals();
       })
