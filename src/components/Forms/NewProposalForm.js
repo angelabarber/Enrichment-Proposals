@@ -157,7 +157,7 @@ export const NewProposalForm = ({ primate, currentUser }) => {
           {proposalId ? (
             <button className="form-btn" type="submit" onClick={handleSubmit}>
               {" "}
-              Save Edit{" "}
+              Edit Proposal{" "}
             </button>
           ) : (
             <button className="form-btn" type="submit" onClick={handleSubmit}>

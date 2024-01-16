@@ -185,11 +185,11 @@
       "exhibit": true
     },
     {
-      "id": 5,
       "userId": 4,
       "description": "Hammock",
       "approved": false,
-      "exhibit": true
+      "exhibit": true,
+      "id": 5
     },
     {
       "userId": 4,
@@ -200,17 +200,10 @@
     },
     {
       "userId": 4,
-      "description": "a",
+      "description": "Bubble Machine",
       "approved": false,
       "exhibit": false,
-      "id": 15
-    },
-    {
-      "userId": 3,
-      "description": "a",
-      "approved": false,
-      "exhibit": false,
-      "id": 16
+      "id": 7
     }
   ],
   "primatesProposals": [
@@ -250,11 +243,6 @@
       "id": 7
     },
     {
-      "proposalId": 15,
-      "primateId": 5,
-      "id": 8
-    },
-    {
       "proposalId": 6,
       "primateId": 1,
       "id": 9
@@ -265,14 +253,19 @@
       "id": 10
     },
     {
-      "proposalId": 16,
-      "primateId": 2,
+      "proposalId": 7,
+      "primateId": 1,
       "id": 11
     },
     {
-      "proposalId": 16,
-      "primateId": 5,
+      "proposalId": 7,
+      "primateId": 9,
       "id": 12
+    },
+    {
+      "proposalId": 7,
+      "primateId": 6,
+      "id": 13
     }
   ]
 }
