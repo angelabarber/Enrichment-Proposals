@@ -128,7 +128,8 @@ export const NewProposalForm = ({ primate, currentUser }) => {
         }
       });
       return Promise.all(promises).then(() => {
-       if navigate("/proposals");
+        //if
+        navigate("/proposals");
       });
     }
     // }
