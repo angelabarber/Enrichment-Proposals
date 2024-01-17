@@ -27,7 +27,21 @@
   }
 
   .navbar-link:hover {
-    color: whitesmoke;
+    color: rgb(8, 65, 8);
   }
+  
+
+li a {
+  text-decoration: none;
+  color: inherit
+}
+
+li a:visited {
+  color: inherit
+} 
+
+li input:focus{
+  outline: none;
+}
 
 

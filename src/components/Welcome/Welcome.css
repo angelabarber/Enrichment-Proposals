@@ -1,0 +1,21 @@
+/* h1 {
+    text-align: left;
+    margin: 5rem 14rem;
+    font-size: 4rem;
+    color: aliceblue;
+    font-weight: bold;
+    text-shadow: 2px 3px 4px lightslategray;
+} */
+/* .body {
+    background-image: url(https://mostbestusa.files.wordpress.com/2015/06/9806627654_b09dc88e79_o.jpg)
+}  */
+
+/* .welcome-container {
+    background-image: url(https://mostbestusa.files.wordpress.com/2015/06/9806627654_b09dc88e79_o.jpg)
+} */
+.welcome-container {
+    background-image: url('https://mostbestusa.files.wordpress.com/2015/06/9806627654_b09dc88e79_o.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+  }

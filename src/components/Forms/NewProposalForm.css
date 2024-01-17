@@ -1,6 +1,7 @@
+
 form {
-    margin: 3rem 5rem;
-    border: 1px solid darkgreen;
+    margin: 1rem 3rem;
+    border: 1px solid rgb(224, 24, 158);
     border-radius: 10px;
     padding: 1rem 0rem 0rem 1rem;
     box-shadow: 1px 2px 5px lightgray;
@@ -36,4 +37,10 @@ form {
     box-shadow: none;
     outline: 2px solid transparent;
     outline-offset: 2px;
-  }
+  } */
+
+ /* input[type=checkbox] {
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+  }  */

@@ -201,14 +201,16 @@ export const NewProposalForm = ({ currentUser, getAndSetProposals }) => {
       </fieldset>
       <fieldset>
         <div className="form-group">
-          <label>On Exhibit:</label>
-          <input
-            type="checkbox"
-            onChange={(event) => {
-              setExhibit(event.target.checked);
-            }}
-            checked={exhibit}
-          />
+          <div key={exhibit}>
+            <label>On Exhibit:</label>
+            <input
+              type="checkbox"
+              onChange={(event) => {
+                setExhibit(event.target.checked);
+              }}
+              checked={exhibit}
+            />
+          </div>
         </div>
       </fieldset>
       <fieldset>
