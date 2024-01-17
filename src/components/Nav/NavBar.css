@@ -2,7 +2,7 @@
 .navbar {
     display: flex;
     flex-wrap: nowrap;
-    background-color: gray;
+    background-color: rgba(14, 97, 14, 0.521);
     margin: 0;
     width: 100%;
     padding: 0.5rem;
