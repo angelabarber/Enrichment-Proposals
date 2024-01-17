@@ -13,7 +13,7 @@ import {
   primatesProposalsWithPrimates,
 } from "../../services/proposalService.js";
 
-export const NewProposalForm = ({ primate, currentUser }) => {
+export const NewProposalForm = ({ currentUser, getAndSetProposals }) => {
   const [primates, setPrimates] = useState([]);
   const [allPrimateProposals, setAllPrimateProposals] = useState([]);
   const [filteredPrimateProposals, setFilteredPrimateProposals] = useState([]);
@@ -162,6 +162,7 @@ export const NewProposalForm = ({ primate, currentUser }) => {
     if (event.target.innerText === "Edit Proposal") {
       editTheProposal(newProposal);
     }
+    getAndSetProposals();
     navigate("/proposals");
   };
 

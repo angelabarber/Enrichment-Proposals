@@ -181,7 +181,7 @@
       "userId": 4,
       "description": "Hammock",
       "approved": false,
-      "exhibit": false,
+      "exhibit": true,
       "id": 5
     },
     {
@@ -190,6 +190,55 @@
       "approved": false,
       "exhibit": true,
       "id": 6
+    },
+    {
+      "userId": 4,
+      "description": "bubbles",
+      "approved": false,
+      "exhibit": true,
+      "id": 7
+    },
+    {
+      "userId": 4,
+      "description": "a",
+      "approved": false,
+      "exhibit": false,
+      "id": 10
+    },
+    {
+      "userId": 4,
+      "description": "coconuts",
+      "approved": false,
+      "exhibit": false,
+      "id": 11
+    },
+    {
+      "userId": 4,
+      "description": "coconut feeders",
+      "approved": false,
+      "exhibit": false,
+      "id": 12
+    },
+    {
+      "userId": 4,
+      "description": "as",
+      "approved": false,
+      "exhibit": false,
+      "id": 13
+    },
+    {
+      "userId": 4,
+      "description": "aa",
+      "approved": false,
+      "exhibit": false,
+      "id": 14
+    },
+    {
+      "userId": 4,
+      "description": "as",
+      "approved": false,
+      "exhibit": false,
+      "id": 15
     }
   ],
   "primatesProposals": [
@@ -232,6 +281,56 @@
       "proposalId": 5,
       "primateId": 10,
       "id": 18
+    },
+    {
+      "proposalId": 5,
+      "primateId": 8,
+      "id": 19
+    },
+    {
+      "proposalId": 7,
+      "primateId": 9,
+      "id": 20
+    },
+    {
+      "proposalId": 7,
+      "primateId": 5,
+      "id": 21
+    },
+    {
+      "proposalId": 10,
+      "primateId": 3,
+      "id": 26
+    },
+    {
+      "proposalId": 11,
+      "primateId": 9,
+      "id": 27
+    },
+    {
+      "proposalId": 12,
+      "primateId": 7,
+      "id": 28
+    },
+    {
+      "proposalId": 13,
+      "primateId": 3,
+      "id": 29
+    },
+    {
+      "proposalId": 14,
+      "primateId": 6,
+      "id": 30
+    },
+    {
+      "proposalId": 14,
+      "primateId": 7,
+      "id": 31
+    },
+    {
+      "proposalId": 15,
+      "primateId": 6,
+      "id": 32
     }
   ]
 }

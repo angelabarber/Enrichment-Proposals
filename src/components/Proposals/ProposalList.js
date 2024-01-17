@@ -7,8 +7,12 @@ import {
 import { Proposal } from "./Proposal.js";
 import "./Proposal.css";
 
-export const ProposalList = ({ currentUser }) => {
-  const [allProposals, setAllProposals] = useState([]);
+export const ProposalList = ({
+  currentUser,
+  allProposals,
+  setAllProposals,
+  getAndSetProposals,
+}) => {
   const [showApprovedOnly, setShowApprovedOnly] = useState(false);
   // const [showPendingApprovalOnly, setPendingApprovalOnly] = useState(true)
   const [filteredProposals, setFilteredProposals] = useState([]);
@@ -16,19 +20,14 @@ export const ProposalList = ({ currentUser }) => {
 
   useEffect(() => {
     getAndSetProposals();
-  }, [allProposals]);
+  }, []);
 
   useEffect(() => {
     if (allProposals) {
       getAndSetProposalsWithPrimates();
     }
-  }, []);
+  }, [allProposals]);
 
-  const getAndSetProposals = () => {
-    getProposals().then((proposalsArray) => {
-      setAllProposals(proposalsArray);
-    });
-  };
   const getAndSetProposalsWithPrimates = () => {
     primatesProposalsWithPrimates().then((primateProposalsArray) => {
       setPrimateProposals(primateProposalsArray);
