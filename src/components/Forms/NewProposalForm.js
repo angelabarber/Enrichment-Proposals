@@ -10,10 +10,13 @@ import {
   createProposal,
   editProposal,
   getProposalById,
+  primatesProposalsWithPrimates,
 } from "../../services/proposalService.js";
 
 export const NewProposalForm = ({ primate, currentUser }) => {
   const [primates, setPrimates] = useState([]);
+  const [allPrimateProposals, setAllPrimateProposals] = useState([]);
+  const [filteredPrimateProposals, setFilteredPrimateProposals] = useState([]);
   const [initialSelectedPrimateIds, setInitialSelectedPrimateIds] = useState(
     []
   );
@@ -22,6 +25,16 @@ export const NewProposalForm = ({ primate, currentUser }) => {
   const [exhibit, setExhibit] = useState(false);
   const { proposalId } = useParams();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    primatesProposalsWithPrimates().then(setAllPrimateProposals);
+  }, []);
+
+  useEffect(() => {
+    getPrimateProposalsByProposalId(proposalId).then(
+      setFilteredPrimateProposals
+    );
+  }, [proposalId]);
 
   useEffect(() => {
     if (!isNaN(parseInt(proposalId))) {
@@ -52,12 +65,6 @@ export const NewProposalForm = ({ primate, currentUser }) => {
     });
   }, []);
 
-  //   useEffect(() => {
-  //     fetch(`http://localhost:8088/proposals`)
-  //       .then((res) => res.json())
-  //       .then(setProposals);
-  //   }, []);
-
   const checkListener = (event) => {
     const { checked, value } = event.target;
     const clone = structuredClone(selectedPrimateIds);
@@ -70,6 +77,69 @@ export const NewProposalForm = ({ primate, currentUser }) => {
         clone.filter((primate) => primate !== parseInt(value))
       );
     }
+  };
+
+  const addProposal = (newProposal) => {
+    createProposal(newProposal)
+      .then((res) => {
+        const promises = selectedPrimateIds.map((primateId) => {
+          return fetch("http://localhost:8088/primatesProposals", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              proposalId: res.id,
+              primateId,
+            }),
+          });
+        });
+        return Promise.all(promises);
+      })
+      .then(() => {
+        navigate("/proposals");
+      });
+  };
+
+  const removePrimateProposals = () => {
+    if (filteredPrimateProposals) {
+      const primateProposals = filteredPrimateProposals.filter(
+        (primateProposal) => {
+          if (!selectedPrimateIds.includes(primateProposal.primateId)) {
+            return primateProposal.id;
+          }
+        }
+      );
+      const deletePromises = primateProposals.map((proposal) => {
+        return fetch(`http://localhost:8088/primatesProposals/${proposal.id}`, {
+          method: "DELETE",
+        });
+      });
+      return Promise.all(deletePromises).then(() => {
+        navigate("/proposals");
+      });
+    }
+  };
+
+  const editTheProposal = (newProposal) => {
+    editProposal(newProposal, proposalId);
+
+    const promises = selectedPrimateIds.map((primateId) => {
+      if (!initialSelectedPrimateIds.includes(primateId)) {
+        return fetch("http://localhost:8088/primatesProposals", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            proposalId: +proposalId,
+            primateId,
+          }),
+        });
+      }
+    });
+    removePrimateProposals();
+    return Promise.all(promises).then(() => {});
   };
 
   const handleSubmit = (event) => {
@@ -86,74 +156,13 @@ export const NewProposalForm = ({ primate, currentUser }) => {
       if (description === "") {
         return;
       }
-      createProposal(newProposal)
-        .then((res) => {
-          const promises = selectedPrimateIds.map((primateId) => {
-            return fetch("http://localhost:8088/primatesProposals", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                proposalId: res.id,
-                primateId,
-              }),
-            });
-          });
-          return Promise.all(promises);
-        })
-        .then(() => {
-          navigate("/proposals");
-        });
+      addProposal(newProposal);
     }
+
     if (event.target.innerText === "Edit Proposal") {
-      // for (let selectedId of selectedPrimateIds) {
-      // const newPrimateProposal = {
-      //   primateId: selectedId,
-      //   proposalId: +proposalId,
-      // };
-      // addPrimateProposal(newPrimateProposal);
-      const promises = selectedPrimateIds.map((primateId) => {
-        if (!initialSelectedPrimateIds.includes(primateId)) {
-          return fetch("http://localhost:8088/primatesProposals", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              proposalId: +proposalId,
-              primateId,
-            }),
-          });
-        }
-      });
-      return Promise.all(promises).then(() => {
-        //if
-        navigate("/proposals");
-      });
+      editTheProposal(newProposal);
     }
-    // }
-    // }
-    //const array1 = [1, 2, 3]; initial selected primate ids
-
-    //const array2 = [2, 5, 6]; selected primate ids
-
-    // for(array of array1) {
-    //   console.log(array2.includes(array))
-
-    // }
-
-    // be able to change/delete selected primates with the edit form
-    //keep track of initial ids and when they are modified
-    //delete corresponding primateProposals IF that primateId has been deleted
-    //           method: "DELETE",
-    //         });
-    //       });
-    //     });
-    //     editProposal(newProposal, proposalId).then((proposalId) => {
-    //       navigate("/proposals");
-    //     });
-    //   }
+    navigate("/proposals");
   };
 
   return (

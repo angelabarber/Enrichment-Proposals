@@ -16,7 +16,7 @@ export const ProposalList = ({ currentUser }) => {
 
   useEffect(() => {
     getAndSetProposals();
-  }, []);
+  }, [allProposals]);
 
   useEffect(() => {
     if (allProposals) {
@@ -41,13 +41,7 @@ export const ProposalList = ({ currentUser }) => {
         (proposal) => proposal.proposal.approved === true
       );
       setFilteredProposals(approvedProposals);
-    }
-    // if(showPendingApprovalOnly) {
-    //   const pendingProposals = allProposals.filter(
-    //     (proposal) => proposal.approved === false)
-    //     setFilteredProposals(pendingProposals)
-    //   }
-    else {
+    } else {
       setFilteredProposals(allProposals);
     }
   }, [showApprovedOnly, allProposals]);

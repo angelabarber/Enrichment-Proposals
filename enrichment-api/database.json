@@ -181,7 +181,7 @@
       "userId": 4,
       "description": "Hammock",
       "approved": false,
-      "exhibit": true,
+      "exhibit": false,
       "id": 5
     },
     {
@@ -204,11 +204,6 @@
       "proposalId": 3
     },
     {
-      "id": 3,
-      "primateId": 7,
-      "proposalId": 3
-    },
-    {
       "id": 4,
       "primateId": 8,
       "proposalId": 1
@@ -217,11 +212,6 @@
       "id": 5,
       "primateId": 9,
       "proposalId": 1
-    },
-    {
-      "id": 6,
-      "primateId": 3,
-      "proposalId": 5
     },
     {
       "proposalId": 6,
@@ -240,18 +230,8 @@
     },
     {
       "proposalId": 5,
-      "primateId": 5,
-      "id": 14
-    },
-    {
-      "proposalId": 5,
-      "primateId": 6,
-      "id": 15
-    },
-    {
-      "proposalId": 5,
-      "primateId": 8,
-      "id": 16
+      "primateId": 10,
+      "id": 18
     }
   ]
 }
