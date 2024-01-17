@@ -10,9 +10,9 @@ export const NavBar = () => {
 
   return (
     <div>
-      <Navbar className="my-2" color="success" dark>
+      <Navbar className="navbar-light" color="success" dark>
         <NavbarBrand href="/">Monkey Business</NavbarBrand>
-        <Nav className="me-auto" pills>
+        <Nav className="me-auto">
           <NavItem>
             <NavLink tag={RRNavLink} className="navbar-item" href="/primates/">
               Primates
