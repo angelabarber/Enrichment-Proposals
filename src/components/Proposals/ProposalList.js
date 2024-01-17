@@ -37,7 +37,7 @@ export const ProposalList = ({
   useEffect(() => {
     if (showApprovedOnly) {
       const approvedProposals = allProposals.filter(
-        (proposal) => proposal.proposal.approved === true
+        (proposal) => proposal.approved === true
       );
       setFilteredProposals(approvedProposals);
     } else {
@@ -51,7 +51,7 @@ export const ProposalList = ({
 
   return (
     <div className="proposals-container">
-      <h2> Proposals</h2>
+      <h2 className="title"> Proposals</h2>
       <div>
         <button
           className="filter-btn btn-primary"
