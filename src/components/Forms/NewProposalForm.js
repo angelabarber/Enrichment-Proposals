@@ -13,6 +13,8 @@ import {
   primatesProposalsWithPrimates,
 } from "../../services/proposalService.js";
 
+import "./NewProposalForm.css";
+
 export const NewProposalForm = ({ currentUser, getAndSetProposals }) => {
   const [primates, setPrimates] = useState([]);
   const [allPrimateProposals, setAllPrimateProposals] = useState([]);

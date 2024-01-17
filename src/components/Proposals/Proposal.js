@@ -88,8 +88,8 @@ export const Proposal = ({
       <div>{proposalWithPrimates.description}</div>
       <footer>
         <div>
-          <div className="proposal-info"> Approved</div>
-          <div>{proposalWithPrimates.approved ? "yes" : "no"}</div>
+          <div className="proposal-info"> Approved:</div>
+          <div>{proposalWithPrimates.approved ? "Yes" : "No"}</div>
         </div>
         <div className="btn-container">
           {currentUser.id === proposalWithPrimates.userId ? (
