@@ -3,17 +3,18 @@ import { useNavigate } from "react-router-dom";
 import "./NavBar.css";
 import React, { useState } from "react";
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from "reactstrap";
+import { NavLink as RRNavLink } from "react-router-dom";
 
 export const NavBar = () => {
   const navigate = useNavigate();
 
   return (
     <div>
-      <Navbar className="navbar" color="success" dark>
+      <Navbar className="my-2" color="success" dark>
         <NavbarBrand href="/">Monkey Business</NavbarBrand>
-        <Nav pills>
+        <Nav className="me-auto" pills>
           <NavItem>
-            <NavLink className="navbar-item" href="/primates/">
+            <NavLink tag={RRNavLink} className="navbar-item" href="/primates/">
               Primates
             </NavLink>
           </NavItem>
@@ -30,6 +31,7 @@ export const NavBar = () => {
           {localStorage.getItem("primate_user") ? (
             <NavItem>
               <NavLink
+                className="navbar-item navbar-logout"
                 href=""
                 onClick={() => {
                   localStorage.removeItem("primate_user");
