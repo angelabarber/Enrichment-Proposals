@@ -1,5 +1,5 @@
 /* Import the google web fonts you want to use */
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Quicksand&family=Roboto:wght@100&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Quicksand&family=Roboto:wght@100&display=swap"); */
 
 /* FONTS
 font-family: "Nunito", sans-serif;
@@ -9,7 +9,7 @@ font-family: "Roboto", sans-serif;
 
 /* COLOR PALETTE */
 /* Feel free to change these values and create your own color palette! https://coolors.co/ is a great resource */
-:root {
+/* :root {
   --primary: #ffb400;
   --secondary: #00a6ed;
   --info: #7fb800;
@@ -22,27 +22,27 @@ font-family: "Roboto", sans-serif;
 }
 
 /* GLOBAL STYLES */
-body,
+/* body,
 button,
 input,
 select,
 textarea {
   font-family: "Nunito", sans-serif;
-}
+} */ */
 
-body {
+/* body {
   background-color: black;
   margin: 0;
-}
+} */
 
-h1,
+/* h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
   font-family: "Roboto", serif;
-}
+} */
 
 /* This prevents all the links in the app from having default underline */
 a {
@@ -59,17 +59,17 @@ input:focus {
 }
 
 /* GLOBAL STYLING FOR ALL THE BUTTONS BUTTONS */
-button {
+/* button {
   padding: 0.5rem 1rem;
   border: 1px solid transparent;
   border-radius: 0.5rem;
   color: var(--white);
   cursor: pointer;
-}
+} */
 
 /* These are all the color options for the buttons */
 /* If you change the color variables, be sure to change the hover colors to be a darker shade of the colors you chose*/
-.btn-primary {
+/* .btn-primary {
   background-color: var(--primary);
 }
 
@@ -99,15 +99,15 @@ button {
 
 .btn-info:hover {
   background-color: #71a500;
-}
+} */
 
 /* This CSS can be deleted. It is only used for the first chapter */
-.welcome {
+/* .welcome {
   text-align: center;
   margin: 5rem 14rem;
   font-size: 4rem;
   color: aliceblue;
   font-weight: bold;
   text-shadow: 2px 3px 4px lightslategray;
-}
+} */
 

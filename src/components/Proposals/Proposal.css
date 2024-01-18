@@ -42,3 +42,17 @@
   .proposal > footer > * {
     flex-basis: 22%;
   }
+
+.text {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: medium;
+}
+
+.title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: green;
+}
+
+.btn-text {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}

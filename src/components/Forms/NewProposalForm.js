@@ -170,7 +170,7 @@ export const NewProposalForm = ({ currentUser, getAndSetProposals }) => {
 
   return (
     <form className="proposal">
-      <h2>New Proposal</h2>
+      <h2 className="title">New Proposal</h2>
       <fieldset>
         <div className="form-group">
           {primates.map((primate) => (

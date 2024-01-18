@@ -84,12 +84,14 @@ export const Proposal = ({
   return (
     <section className="proposal" key={proposalWithPrimates.id}>
       <header className="proposal-info">#{proposalWithPrimates.id}</header>
-      <div>{proposalWithPrimates.primateNames}</div>
-      <div>{proposalWithPrimates.description}</div>
+      <div className="text">{proposalWithPrimates.primateNames}</div>
+      <div className="text">{proposalWithPrimates.description}</div>
       <footer>
         <div>
-          <div className="proposal-info"> Approved:</div>
-          <div>{proposalWithPrimates.approved ? "Yes" : "No"}</div>
+          <div className="text"> Approved:</div>
+          <div className="text">
+            {proposalWithPrimates.approved ? "Yes" : "No"}
+          </div>
         </div>
         <div className="btn-container">
           {currentUser.id === proposalWithPrimates.userId ? (

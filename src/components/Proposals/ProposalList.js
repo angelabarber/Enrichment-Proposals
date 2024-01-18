@@ -54,17 +54,17 @@ export const ProposalList = ({
       <h2 className="title"> Proposals</h2>
       <div>
         <button
-          className="filter-btn btn-primary"
+          className="btn-text"
           onClick={() => {
             setShowApprovedOnly(true);
           }}
         >
-          Approved
+          Approved Proposals
         </button>
       </div>
       <div>
         <button
-          className="filter-btn btn-info"
+          className="btn-text"
           onClick={() => {
             setShowApprovedOnly(false);
           }}

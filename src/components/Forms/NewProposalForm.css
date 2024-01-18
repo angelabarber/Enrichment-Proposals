@@ -38,9 +38,9 @@ form {
     outline: 2px solid transparent;
     outline-offset: 2px;
   }  */ */
-
-  h2{
-    color: rgb(8, 65, 8);
+  .title {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: green;
   }
 
  /* input[type=checkbox] {
