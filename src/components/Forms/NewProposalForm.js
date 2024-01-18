@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import {
-  addPrimateProposal,
-  deletePrimateProposal,
   getAllPrimates,
   getPrimateProposalsByProposalId,
 } from "../../services/primateService.js";

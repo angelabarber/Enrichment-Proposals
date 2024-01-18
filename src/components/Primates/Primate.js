@@ -3,7 +3,7 @@ export const Primate = ({ primate }) => {
     <section className="primate" key={primate.id}>
       <header className="primate-info"></header>
       <div className="text">{primate.name}</div>
-      <div className="text">Natural Behaviors:{primate.behaviors}</div>
+      <div></div>
     </section>
   );
 };

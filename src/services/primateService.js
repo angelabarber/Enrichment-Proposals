@@ -8,6 +8,12 @@ export const getPrimateProposalsByProposalId = (proposalId) => {
   ).then((res) => res.json());
 };
 
+export const getPrimateByPrimateId = (primateId) => {
+  return fetch(`http://localhost:8088/primates/${primateId}`).then((res) =>
+    res.json()
+  );
+};
+
 // export const getPrimateProposalsByProposalId = (proposalId) => {
 //   return fetch(`http://localhost:8088/primatesProposals/${proposalId}`).then(
 //     (res) => res.json()

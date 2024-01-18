@@ -8,6 +8,7 @@ import { PrimateList } from "../components/Primates/PrimateList.js";
 import { NewProposalForm } from "../components/Forms/NewProposalForm.js";
 import { ProposalForm } from "../components/Forms/ProposalForm.js";
 import { getProposals } from "../services/proposalService.js";
+import { PrimateDetails } from "../components/Primates/PrimateDetails.js";
 
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -37,7 +38,10 @@ export const ApplicationViews = () => {
         }
       >
         <Route index element={<Welcome />} />
-        <Route path="primates" element={<PrimateList />} />
+        <Route path="primates">
+          <Route index element={<PrimateList />} />
+          <Route path=":primateId" element={<PrimateDetails />} />
+        </Route>
         <Route path="proposals">
           <Route
             index
@@ -50,6 +54,7 @@ export const ApplicationViews = () => {
               />
             }
           />
+          {/* </Route> */}
           <Route
             path="newproposal"
             element={
