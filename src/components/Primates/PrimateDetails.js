@@ -14,10 +14,10 @@ export const PrimateDetails = () => {
   return (
     <section className="primate">
       <header className="primate-header">#{primateId}</header>
-      <div>
+      <div className="text">
         <span className="primate-info">{primate.name}</span>
       </div>
-      <div>
+      <div className="text">
         <span className="primate-info"> Behaviors:</span>
         {primate.behaviors}
       </div>

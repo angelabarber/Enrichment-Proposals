@@ -25,6 +25,14 @@ h2{
     padding: 0.5rem;
   }
 
+  /* .primates-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 3rem;
+  } */
+
   /* .primate {
     display: flex;
     flex-direction: row;

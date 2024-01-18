@@ -96,7 +96,7 @@ export const Proposal = ({
         <div className="btn-container">
           {currentUser.id === proposalWithPrimates.userId ? (
             <Link to={`/proposals/${proposalWithPrimates.id}`}>
-              <button className="btn btn-edit">Edit</button>
+              <button className="btn-edit">Edit</button>
             </Link>
           ) : (
             ""
@@ -104,7 +104,7 @@ export const Proposal = ({
         </div>
         <div className="btn-container">
           {currentUser.id === proposalWithPrimates.userId ? (
-            <button className="btn btn-delete" onClick={handleDelete}>
+            <button className="btn-delete" onClick={handleDelete}>
               {" "}
               Delete
             </button>
