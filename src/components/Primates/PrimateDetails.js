@@ -12,18 +12,19 @@ export const PrimateDetails = () => {
     });
   }, [primateId]);
   return (
-    <section className="primate">
-      <header className="primate-header">#{primateId}</header>
-      <div className="text">
-        <span className="primate-info">{primate.name}</span>
-      </div>
-      <div className="text">
-        <span className="primate-info"> Behaviors:</span>
-        {primate.behaviors}
-      </div>
-      <div>
-        <span></span>
-      </div>
-    </section>
+    <div className="monkey-container">
+      <section className="primate">
+        <header className="primate-header">#{primateId}</header>
+        <img className="photos" alt={primate} src={primate.image}></img>
+        <div className="text">
+          <span className="primate-info">{primate.name}</span>
+        </div>
+        <div className="text">
+          <span className="primate-info"> Behaviors:</span>
+          {primate.behaviors}
+        </div>
+        <div></div>
+      </section>
+    </div>
   );
 };

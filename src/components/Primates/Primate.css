@@ -6,16 +6,16 @@ h2{
   .primates {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
+    justify-content: space-between;
   }
 
-  .primates-container {
+  /* .primates-container {
     margin: 1rem 3rem 0rem 3rem;
-  }
+  } */
 
-  .primates-container > h2 {
+  /* .primates-container > h2 {
     margin-top: 0;
-  }
+  } */
 
   .primate {
     background-color:white;
@@ -25,7 +25,29 @@ h2{
     padding: 0.5rem;
   }
 
+ 
+/* .monkey-container {
+    background-image: url('https://columbiachronicle.com/wp-content/uploads/2015/02/6243c86ac25ded2b4fb4641a9bf9afda.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+
+} */
   /* .primates-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 3rem;
+  } */
+  /* .primate-info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 3rem;
+  } */
+  /* .primates {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -58,6 +80,7 @@ h2{
   .primate-info {
     color: var(--outline);
     font-family: "Roboto", sans-serif;
+    justify-content: center;
   }
 
   /* This targets any footer element that is a child of an element with the .ticket class */
@@ -87,6 +110,12 @@ h2{
     font-size: medium;
   }
 
+  .photos {
+    width: 200px; /* Adjust the width as needed */
+    height: 150px; /* Adjust the height as needed */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+  }
+
   /* section.customer {
     margin: 3rem;
   }
@@ -109,3 +138,4 @@ h2{
     line-height: 3rem;
     color: var(--primary);
   } */
+

@@ -92,67 +92,78 @@
       "id": 1,
       "enclosureId": 1,
       "name": "Pied Tamarin",
-      "behaviors": "insect foraging, gum extraction"
+      "behaviors": "insect foraging, gum extraction",
+      "image":"https://www.lpzoo.org/wp-content/uploads/2022/12/pre75_Portrait-76.jpg"
     },
     {
       "id": 2,
       "enclosureId": 2,
       "name": "Francois Langur",
-      "behaviors": "aboreal foraging, browse"
+      "behaviors": "aboreal foraging, browse",
+      "image":"https://www.lpzoo.org/wp-content/uploads/2020/06/Francois-Langur-scaled-1.jpg"
     },
     {
       "id": 3,
       "enclosureId": 3,
       "name": "DeBrazza Monkey",
-      "behaviors": "substrate foraging, allgrooming"
+      "behaviors": "substrate foraging, allgrooming",
+      "image":"https://www.lpzoo.org/wp-content/uploads/2022/12/pre50_Portrait-151.jpg"
     },
     {
       "id": 4,
       "enclosureId": 4,
       "name": "Black Howler Monkey",
-      "behaviors": "browse, vocalizations"
+      "behaviors": "browse, vocalizations",
+      "image":"https://www.lpzoo.org/wp-content/uploads/2022/12/pre52_Portrait-53.jpg"
     },
     {
       "id": 5,
       "enclosureId": 4,
       "name": "Goeldi's Monkey",
-      "behaviors": "insect foraging, gum extraction"
+      "behaviors": "insect foraging, gum extraction",
+      "image":"https://news.wttw.com/sites/default/files/field/image/LPZooMonkey_1107.jpg"
     },
     {
       "id": 6,
       "enclosureId": 5,
       "name": "Titi Monkey",
-      "behaviors": "vocalizations, foraging, allgrooming"
+      "behaviors": "vocalizations, foraging, allgrooming",
+      "image": "https://www.lpzoo.org/wp-content/uploads/2022/12/pre64_Portrait-165.jpg"
     },
     {
       "id": 7,
       "enclosureId": 6,
       "name": "Allens Swamp Monkey",
-      "behaviors": "swimming, puzzles, havoc"
+      "behaviors": "swimming, puzzles, havoc",
+      "image":"https://www.lpzoo.org/wp-content/uploads/2022/12/0206_Banner-207-900x640.jpg"
     },
     {
       "id": 8,
       "enclosureId": 6,
       "name": "Black and White Colobus Monkey",
-      "behaviors": "aboreal movement, foraging, browse"
+      "behaviors": "aboreal movement, foraging, browse",
+      "image":"https://www.lpzoo.org/wp-content/uploads/2023/03/babycolobus-3.webp"
     },
     {
       "id": 9,
       "enclosureId": 7,
       "name": "Crowned Lemur",
-      "behaviors": "scent marking, aboreal leaping, foraging"
+      "behaviors": "scent marking, aboreal leaping, foraging",
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYQKbRTC5cIVY9AEGcoeuC6BEDtGPhV-HusA&usqp=CAU"
     },
     {
       "id": 10,
       "enclosureId": 8,
       "name": "White Cheeked Gibbon",
-      "behaviors": "aboreal locomotion, vocalizaion"
+      "behaviors": "aboreal locomotion, vocalizaion",
+      "image":"https://www.lpzoo.org/wp-content/uploads/2022/12/pre37_Portrait-38.jpg"
     },
     {
       "id": 11,
       "enclosureId": 9,
       "name": "Japanese Macaque",
-      "behaviors": "group foraging, displays, hot tub"
+      "behaviors": "group foraging, displays, hot tub",
+      "image":"https://www.lpzoo.org/wp-content/uploads/2020/06/Grooming-scaled-1.jpg"
     }
   ],
   "proposals": [
