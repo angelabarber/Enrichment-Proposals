@@ -26,13 +26,12 @@ h2{
   }
 
  
-/* .monkey-container {
-    background-image: url('https://columbiachronicle.com/wp-content/uploads/2015/02/6243c86ac25ded2b4fb4641a9bf9afda.jpg');
+.monkey-container {
+    background-image: url('https://news.wttw.com/sites/default/files/styles/full/public/article/image-non-gallery/Monkey%20father%201_1220.jpg?itok=XnZhPo4x');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
-
-} */
+}
   /* .primates-container {
     display: flex;
     flex-direction: row;
@@ -46,7 +45,7 @@ h2{
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin: 3rem;
-  } */
+  /* } 
   /* .primates {
     display: flex;
     flex-direction: row;
@@ -138,4 +137,3 @@ h2{
     line-height: 3rem;
     color: var(--primary);
   } */
-
