@@ -1,27 +1,50 @@
 import { useEffect, useState } from "react"
-import { Primate } from "../Primates/Primate.js"
 import { getAllPrimates } from "../../services/primateService.js"
 
 
 export const NewProposalForm = ( {primate}) => {
-// const [primates, setAllPrimates] = useState([])
+    const [primates, setPrimates] = useState([])
+    const [selectedPrimateIds, setSelectedPrimateIds] = useState([])
 
-// useEffect(() => {
-//     getAllPrimates(). t
-// })
+
+    useEffect (() => {
+        getAllPrimates().then(primatesArray => {
+            setPrimates(primatesArray)
+        })
+    }, [])
+
+
+    const checkListener = (event) => {
+        const { checked, value } = event.target
+        const clone = structuredClone(selectedPrimateIds);
+
+        if (checked) {
+            clone.push(parseInt(value));
+            setSelectedPrimateIds(clone);
+        } else {
+            setSelectedPrimateIds(clone.filter((primate) => primate !== parseInt(value)))
+        }
+        
+
+    };
 
     return (
         <form className="proposal">
             <h2>New Proposal</h2>
             <fieldset>
-                <div className="form-group">
-                    <label>Select Species</label>
-                    <select>
-                        <option key={0} value={0}>
-                            Select Primate/Primates
-                        </option>
-                    </select>
-                </div>
+                <div className="form-group" >
+                    {primates.map((primate) => (
+                        <div key={primate.id}>
+                            <label>{primate.name}</label>
+                            <input
+                                type="checkbox"
+                                value={primate.id}
+                                checked={selectedPrimateIds.includes(primate.id)}
+                                onChange={checkListener}
+                                />
+                            </div>
+                    ))}
+                          </div>
             </fieldset>
             <fieldset>
                 <div className="form-group">
