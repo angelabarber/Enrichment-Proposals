@@ -1,11 +1,25 @@
-import { Route } from "react-router-dom"
+import { Route, Routes, json } from "react-router-dom"
 import { NavBar } from "../components/Nav/NavBar.js"
 import { Outlet } from "react-router-dom"
 import { Welcome } from "../components/Welcome/Welcome.js"
 import { ProposalList } from "../components/Proposals/ProposalList.js"
+import { useEffect, useState } from "react"
+import { PrimateList } from "../components/Primates/PrimateList.js"
+import { NewProposalForm } from "../components/Forms/NewProposalForm.js"
 
 export const ApplicationViews = () => {
-  return <>
+  const [currentUser, setCurrentUser] = useState({})
+
+  useEffect(() => {
+    const localPrimateUser = localStorage.getItem("primate_user")
+    const primateUserObject = JSON.parse(localPrimateUser)
+
+    setCurrentUser(primateUserObject)
+  }, [])
+
+
+  return (
+  <Routes>
   <Route 
         path="/" 
         element={
@@ -16,9 +30,12 @@ export const ApplicationViews = () => {
       }
       >
         <Route index element={<Welcome />} />
-      <Route path="proposals" element={ <ProposalList />} />
+      <Route path="proposals" element={<ProposalList currentUser={currentUser} />} />
+      <Route path="primates" element={<PrimateList />} />
+      <Route path="newproposal" element={<NewProposalForm />} />
       </Route>
+      </Routes>
   
-  
-  </>
+  )
+ 
 }

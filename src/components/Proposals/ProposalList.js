@@ -5,7 +5,7 @@ import "./Proposal.css"
 
 
 
-export const ProposalList = () => {
+export const ProposalList = ( { currentUser }) => {
     const [allProposals, setAllProposals] = useState([])
     const [showApprovedOnly, setShowApprovedOnly] = useState(false)
     // const [showPendingApprovalOnly, setPendingApprovalOnly] = useState(true)
@@ -55,7 +55,7 @@ export const ProposalList = () => {
               <article className="proposals">
                 {filteredProposals.map((proposalObj) => {
                   return (
-                   <Proposal proposal={proposalObj} key={proposalObj.id}/>
+                   <Proposal proposal={proposalObj} currentUser={currentUser} key={proposalObj.id}/>
                   )
                 })}
   

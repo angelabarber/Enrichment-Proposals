@@ -1,8 +1,9 @@
-import { Routes, Route, Outlet } from "react-router-dom"
-import { ProposalList } from "./components/Proposals/ProposalList.js"
-import { NavBar } from "./components/Nav/NavBar.js"
+import { Routes, Route } from "react-router-dom"
+
 import { Login } from "./components/auth/Login.js"
-import { Welcome } from "./components/Welcome/Welcome.js"
+import { Authorized } from "./views/Authorized.js"
+import { ApplicationViews } from "./views/ApplicationViews.js"
+
 
 
 export const App = () => {
@@ -10,6 +11,11 @@ export const App = () => {
     <Routes>
       < Route path="/login" element={<Login />} />
       
+      <Route path="*" element={
+        <Authorized>
+          <ApplicationViews />
+        </Authorized>
+      } />
     </Routes>
   )
 
