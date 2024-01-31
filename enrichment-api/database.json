@@ -158,35 +158,41 @@
     "proposals": [
       {
         "id": 1,
-        "keeperId": 3,
+        "userId": 3,
         "description": "Hanging Boomer Balls",
-        "approved": true  
+        "approved": true,
+        "exhibit":true 
+        
       },
       {
         "id": 2,
-        "keeperId": 1,
+        "userId": 1,
         "description": "Gum Arabic",
-        "approved": true  
+        "approved": true,
+        "exhibit":true   
       },
       {
         "id": 3,
-        "keeperId": 5,
+        "userId": 5,
         "description": "Chow Ball on Pulley",
-        "approved": false 
+        "approved": false,
+        "exhibit":true  
       }
       ,
       {
         "id": 4,
-        "keeperId": 6,
+        "userId": 6,
         "description": "Jolly Eggs",
-        "approved": false 
+        "approved": false,
+        "exhibit":true  
       }
       ,
       {
         "id": 5,
-        "keeperId": 4,
+        "userId": 4,
         "description": "Hammock",
-        "approved": false 
+        "approved": false,
+        "exhibit":true 
       }
     ],
     "primatesProposals": [
@@ -219,6 +225,12 @@
         "id": 6,
         "primateId": 3,
         "proposalId": 4
+      },
+      {
+        "id": 7,
+        "primateId": 3,
+        "proposalId": 5
       }
+      
     ]
   }
