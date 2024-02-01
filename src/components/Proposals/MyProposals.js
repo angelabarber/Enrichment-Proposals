@@ -1,6 +1,22 @@
-import { useState } from "react"
-import { Proposal } from "./Proposal.js"
+import { useEffect, useState } from "react";
+import { getProposals } from "../../services/proposalService.js";
 
-// export const MyProposals = ( {currentUser} ) => {
-//     const [myProposals, setMyProposals] = useState([])
-// }
+export const MyProposal = ({ currentUser }) => {
+  const [myProposals, setMyProposals] = useState([]);
+
+  const specificProposals = () => {
+    getProposals().then((proposalsArray) => {
+      if (currentUser.isAdmin) {
+        setMyProposals(proposalsArray);
+      } else {
+        const userProposals = proposalsArray.filter(
+          (proposal) => proposal.userId === currentUser.id
+        );
+        setMyProposals(userProposals);
+      }
+    });
+  };
+  useEffect(() => {
+    specificProposals();
+  }, [currentUser]);
+};
