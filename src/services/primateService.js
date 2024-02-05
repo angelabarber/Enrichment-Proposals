@@ -15,9 +15,24 @@ export const getPrimateProposalsByProposalId = (proposalId) => {
 // };
 
 export const getAllPrimateProposals = () => {
-    return fetch(
-      `http://localhost:8088/primatesProposals?_expand=primate&_expand=proposal`
-    ).then((res) => res.json());
-  };
+  return fetch(
+    `http://localhost:8088/primatesProposals?_expand=primate&_expand=proposal`
+  ).then((res) => res.json());
+};
 
-  
+export const deletePrimateProposal = (primateProposalId) => {
+  return fetch(`http://localhost:8088/primatesProposals/${primateProposalId}`);
+};
+
+export const addPrimateProposal = (newPrimateProposal) => {
+  const postOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newPrimateProposal),
+  };
+  return fetch(`http://localhost:8088/primatesProposals`, postOptions).then(
+    (res) => res.json()
+  );
+};

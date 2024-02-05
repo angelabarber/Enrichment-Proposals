@@ -178,13 +178,6 @@
       "exhibit": true
     },
     {
-      "id": 4,
-      "userId": 6,
-      "description": "Jolly Eggs",
-      "approved": false,
-      "exhibit": true
-    },
-    {
       "userId": 4,
       "description": "Hammock",
       "approved": false,
@@ -197,13 +190,6 @@
       "approved": false,
       "exhibit": true,
       "id": 6
-    },
-    {
-      "userId": 4,
-      "description": "Bubble Machine",
-      "approved": false,
-      "exhibit": false,
-      "id": 7
     }
   ],
   "primatesProposals": [
@@ -253,19 +239,19 @@
       "id": 10
     },
     {
-      "proposalId": 7,
-      "primateId": 1,
-      "id": 11
+      "proposalId": 5,
+      "primateId": 5,
+      "id": 14
     },
     {
-      "proposalId": 7,
-      "primateId": 9,
-      "id": 12
-    },
-    {
-      "proposalId": 7,
+      "proposalId": 5,
       "primateId": 6,
-      "id": 13
+      "id": 15
+    },
+    {
+      "proposalId": 5,
+      "primateId": 8,
+      "id": 16
     }
   ]
 }
