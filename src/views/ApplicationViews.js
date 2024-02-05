@@ -37,14 +37,11 @@ export const ApplicationViews = () => {
             path="newproposal"
             element={<NewProposalForm currentUser={currentUser} />}
           />
-          {/* <Route
-            path="edit/:id?"
-            element={<ProposalForm currentUser={currentUser} />}
-          /> */}
-          {/* <Route
-            path="proposals/:id"
-            element={<ProposalForm currentUser={currentUser} />}
-          /> */}
+
+          <Route
+            path=":proposalId"
+            element={<NewProposalForm currentUser={currentUser} />}
+          />
         </Route>
       </Route>
     </Routes>
