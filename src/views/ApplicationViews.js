@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { PrimateList } from "../components/Primates/PrimateList.js";
 import { NewProposalForm } from "../components/Forms/NewProposalForm.js";
 import { ProposalForm } from "../components/Forms/ProposalForm.js";
+import { getProposals } from "../services/proposalService.js";
 
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -18,6 +19,12 @@ export const ApplicationViews = () => {
     setCurrentUser(primateUserObject);
   }, []);
 
+  const [allProposals, setAllProposals] = useState([]);
+  const getAndSetProposals = () => {
+    getProposals().then((proposalsArray) => {
+      setAllProposals(proposalsArray);
+    });
+  };
   return (
     <Routes>
       <Route
@@ -32,15 +39,35 @@ export const ApplicationViews = () => {
         <Route index element={<Welcome />} />
         <Route path="primates" element={<PrimateList />} />
         <Route path="proposals">
-          <Route index element={<ProposalList currentUser={currentUser} />} />
+          <Route
+            index
+            element={
+              <ProposalList
+                currentUser={currentUser}
+                allProposals={allProposals}
+                setAllProposals={setAllProposals}
+                getAndSetProposals={getAndSetProposals}
+              />
+            }
+          />
           <Route
             path="newproposal"
-            element={<NewProposalForm currentUser={currentUser} />}
+            element={
+              <NewProposalForm
+                currentUser={currentUser}
+                getAndSetProposals={getAndSetProposals}
+              />
+            }
           />
 
           <Route
             path=":proposalId"
-            element={<NewProposalForm currentUser={currentUser} />}
+            element={
+              <NewProposalForm
+                currentUser={currentUser}
+                getAndSetProposals={getAndSetProposals}
+              />
+            }
           />
         </Route>
       </Route>
